@@ -35,9 +35,9 @@ $app->get('/', function ($request, $response, $args) {
 });
 
 function generateid ($userID) {
-    $numbers = $userID / 8;
+    //$numbers = $userID / 8;
     $arr = array();
-    for ($i = 0; $i < $numbers; $i++) {
+    for ($i = 0; $i < $userID; $i++) {
         array_push($arr, $i);
     }
     return $arr;
