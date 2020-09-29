@@ -30,7 +30,7 @@ function print_mem()
 {
     $mem_usage = round(memory_get_usage()/1024);
     $mem_peak = round(memory_get_peak_usage()/1024);
-    $data = ['Memory Usage' => $mem_usage, 'Peak Usage' => $mem_peak];
+    $data = ['Memory Usage' => "$mem_usage" + ' KB', 'Peak Usage' => "$mem_peak" + ' KB'];
     return json_encode($data);
 }
 
