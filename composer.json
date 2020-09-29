@@ -1,6 +1,7 @@
 {
     "require": {
         "slim/slim": "^3.12",
-        "slim/twig-view": "^2.5"
+        "slim/twig-view": "^2.5",
+        "react/child-process": "0.6.1"
     }
 }
