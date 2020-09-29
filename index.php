@@ -26,6 +26,14 @@ if (!isset($_SESSION['pid'])){
     $_SESSION['pid'] = 0;
 }
 
+function print_mem()
+{
+    $mem_usage = round(memory_get_usage()/1024);
+    $mem_peak = round(memory_get_peak_usage()/1024);
+    $data = ['Memory Usage' => $mem_usage, 'Peak Usage' => $mem_peak];
+    return json_encode($data);
+}
+
 $app = new \Slim\App();
 $container = $app->getContainer();
 
@@ -44,16 +52,15 @@ function generateid ($userID) {
 };
 
 $app->get('/memory', function ($request, $response, $args) {
-    $id = floor(rand(0,100) * 5) + 1;
-    if (defined ( 'PHP_WINDOWS_VERSION_MAJOR' )) {   
-        $userID = 10000 * 2048;
-    } else {
-        $userID = (25000 + $_SESSION['tmp']) * 2024;
-        $_SESSION['tmp'] = $_SESSION['tmp'] + 1500;
+    $big_array = array();
+    echo print_mem();
+    for ($i = 0; $i < 1000000; $i++)
+    {
+        $big_array[] = $i;
     }
-    $user = generateid($userID);
-    array_push($_SESSION['userList'],$user);
-    $jsonResponse = array("response" => "User Added Num: {$id}");
+    array_push($_SESSION['userList'], $big_array);
+    echo print_mem();
+    $jsonResponse = array("response" => "User Added");
     return $response->withHeader('Content-type', 'application/json')->withJson($jsonResponse, 200);
 });
 
