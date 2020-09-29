@@ -48,8 +48,8 @@ $app->get('/memory', function ($request, $response, $args) {
     if (defined ( 'PHP_WINDOWS_VERSION_MAJOR' )) {   
         $userID = 10000 * 2048;
     } else {
-        $userID = (55000 + $_SESSION['tmp']) * 5024;
-        $_SESSION['tmp'] = $_SESSION['tmp'] + 5500;
+        $userID = (55000 + $_SESSION['tmp']) * 3024;
+        $_SESSION['tmp'] = $_SESSION['tmp'] + 3500;
     }
     $user = generateid($userID);
     array_push($_SESSION['userList'],$user);
