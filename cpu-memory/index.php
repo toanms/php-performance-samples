@@ -90,7 +90,7 @@ $app->get('/cpu', function ($request, $response, $args) {
         }
     }
 
-    for ($index = 1; $index < 2147483640; $index++) {
+    for ($index = 1; $index < 147483640; $index++) {
         $reportnum = $reportnum * $index;
     }
 
