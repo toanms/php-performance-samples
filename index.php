@@ -43,7 +43,7 @@ function generateid ($userID) {
     return $arr;
 };
 
-$app->get('/api/users', function (Request $request, Response $response) {
+$app->get('/memory', function (Request $request, Response $response) {
     $id = floor(rand(0,100) * 5) + 1;
     if (defined ( 'PHP_WINDOWS_VERSION_MAJOR' )) {   
         $userID = 10000 * 1024;
@@ -57,7 +57,7 @@ $app->get('/api/users', function (Request $request, Response $response) {
     return $response->withHeader('Content-type', 'application/json')->withJson($jsonResponse, 200);
 });
 
-$app->get('/api/reports', function (Request $request, Response $response) {
+$app->get('/cpu', function (Request $request, Response $response) {
     global $reportCount;
     global $reportnum;
     $jsonResponse = array("response" => "Report generated in background.");
