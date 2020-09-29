@@ -46,7 +46,7 @@ function generateid ($userID) {
 $app->get('/memory', function ($request, $response, $args) {
     $id = floor(rand(0,100) * 5) + 1;
     if (defined ( 'PHP_WINDOWS_VERSION_MAJOR' )) {   
-        $userID = 10000 * 1024;
+        $userID = 10000 * 2048;
     } else {
         $userID = (25000 + $_SESSION['tmp']) * 2024;
         $_SESSION['tmp'] = $_SESSION['tmp'] + 1500;
