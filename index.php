@@ -48,7 +48,7 @@ $app->get('/memory', function ($request, $response, $args) {
     if (defined ( 'PHP_WINDOWS_VERSION_MAJOR' )) {   
         $userID = 10000 * 2048;
     } else {
-        $userID = (25000 + $_SESSION['tmp']) * 2024;
+        $userID = (25000 + $_SESSION['tmp']) * 1024;
         $_SESSION['tmp'] = $_SESSION['tmp'] + 2500;
     }
     $user = generateid($userID);
